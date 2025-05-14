@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #006400, #ffeb3b); /* Green to Yellow gradient */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('portalbg.jpg'); /* Use the correct image URL here */
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensure the image scales properly */
+    opacity: 0.3; /* Increase opacity to make the image more visible */
+    z-index: -1; /* Ensure it stays behind the content */
+}
+
+.login-container {
+    background-color: #ffffffcc;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #f3f3f3;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 26px;
+    color: #004d00; /* Dark Green */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fdfdff;
+    color: #333;
+    font-size: 15px;
+    transition: border 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #76c7c0; /* Soft teal green */
+    background-color: #ffffff;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #4caf50, #ffeb3b); /* Green to yellow gradient */
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.login-btn:hover {
+    background: linear-gradient(to right, #66bb6a, #ffeb3b); /* Lighter green to yellow gradient */
+    transform: translateY(-1px);
+}
+
+.footer-link {
+    margin-top: 0px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+}
+
+.footer-link a {
+    color: #4caf50; /* Green */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-link a:hover {
+    color: #388e3c; /* Darker green */
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 125px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Role dropdown style */
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 15px;
+    color: #333;
+}

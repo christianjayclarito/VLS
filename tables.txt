@@ -1,0 +1,234 @@
+CREATE TABLE users (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    role ENUM('student', 'librarian') NOT NULL
+);
+
+
+
+
+CREATE TABLE borrowed_books (
+    student_id INT PRIMARY KEY,
+    book_name VARCHAR(255) NOT NULL,
+    borrow_date DATETIME NOT NULL,
+    return_date DATETIME DEFAULT NULL
+);
+
+
+CREATE TABLE borrowed_logs (
+    student_id VARCHAR(10) PRIMARY KEY,
+    book_name VARCHAR(255) NOT NULL,
+    borrow_date DATE NOT NULL,
+    return_date DATE DEFAULT NULL
+);
+
+
+
+
+
+$sql = "SELECT * FROM borrowed_logs ORDER BY borrow_date DESC";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    echo "<table>";
+    echo "<tr><th>Book</th><th>Student ID</th><th>Borrowed On</th><th>Return By</th></tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['book_title']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['student_id']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['borrow_date']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['return_date']) . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No borrowed books.";
+}
+
+
+-------------BOOKS VALUES:-----------------
+INSERT INTO books (id, title, status, number_of_copies, cover_image) VALUES
+('1', 'Introduction to Information Systems', 'available', '100', 'book1.jpg'),
+('2', 'Database Management Systems', 'available', '100', 'book2.jpg'),
+('3', 'Business Information Systems', 'available', '100', 'book3.jpg'),
+('4', 'Data Communications and Networking', 'available', '100', 'book4.jpg'),
+('5', 'Systems Analysis and Design', 'available', '100', 'book5.jpg'),
+('6', 'Enterprise Resource Planning', 'available', '100', 'book6.jpg'),
+('7', 'E-Commerce: Business, Technology, Society', 'available', '100', 'book7.jpg'),
+('8', 'Information Technology for Management', 'available', '100', 'book8.jpg'),
+('9', 'Digital Transformation: Survive and Thrive in an Era of Mass Extinction', 'available', '100', 'book9.jpg'),
+('10', 'Cloud Computing: Concepts, Technology & Architecture', 'available', '100', 'book10.jpg');
+
+--------FOR UPDATING AVAILABILITY OF BOOKS-----
+UPDATE books
+SET number_of_copies = 5
+WHERE book_id = 1;
+
+
+
+<div class="book book21"><img src="book21.jpg"><div class="book-title">The Art of Computer Programming</div><button onclick="confirmBorrow('The Art of Computer Programming')">Borrow</button></div>
+        <div class="book book22"><img src="book22.jpg"><div class="book-title">Computer Organization and Design</div><button onclick="confirmBorrow('Computer Organization and Design')">Borrow</button></div>
+        <div class="book book23"><img src="book23.jpg"><div class="book-title">Modern Operating Systems</div><button onclick="confirmBorrow('Modern Operating Systems')">Borrow</button></div>
+        <div class="book book24"><img src="book24.jpg"><div class="book-title">Artificial Intelligence: A Modern Approach</div><button onclick="confirmBorrow('Artificial Intelligence: A Modern Approach')">Borrow</button></div>
+        <div class="book book25"><img src="book25.jpg"><div class="book-title">Computer Security: Principles and Practice</div><button onclick="confirmBorrow('Computer Security: Principles and Practice')">Borrow</button></div>
+        <div class="book book26"><img src="book26.jpg"><div class="book-title">Programming Languages: Principles and Practice</div><button onclick="confirmBorrow('Programming Languages: Principles and Practice')">Borrow</button></div>
+        <div class="book book27"><img src="book27.jpg"><div class="book-title">Introduction to Algorithms</div><button onclick="confirmBorrow('Introduction to Algorithms')">Borrow</button></div>
+        <div class="book book28"><img src="book28.jpg"><div class="book-title">Discrete Mathematics and Its Applications</div><button onclick="confirmBorrow('Discrete Mathematics and Its Applications')">Borrow</button></div>
+        <div class="book book29"><img src="book29.jpg"><div class="book-title">Design Patterns: Elements of Reusable Object-Oriented Software</div><button onclick="confirmBorrow('Design Patterns: Elements of Reusable Object-Oriented Software')">Borrow</button></div>
+        <div class="book book30"><img src="book30.jpg"><div class="book-title">Operating System Concepts</div><button onclick="confirmBorrow('Operating System Concepts')">Borrow</button></div>
+        <div class="book book41"><img src="book41.jpg"><div class="book-title">Foundations of Computer Science</div><button onclick="confirmBorrow('Foundations of Computer Science')">Borrow</button></div>
+        <div class="book book42"><img src="book42.jpg"><div class="book-title">Introduction to Programming with Python</div><button onclick="confirmBorrow('Introduction to Programming with Python')">Borrow</button></div>
+        <div class="book book43"><img src="book43.jpg"><div class="book-title">Operating System Concepts</div><button onclick="confirmBorrow('Operating System Concepts')">Borrow</button></div>
+        <div class="book book44"><img src="book44.jpg"><div class="book-title">Computer Organization and Design</div><button onclick="confirmBorrow('Computer Organization and Design')">Borrow</button></div>
+        <div class="book book45"><img src="book45.jpg"><div class="book-title">Network Security Essentials</div><button onclick="confirmBorrow('Network Security Essentials')">Borrow</button></div>
+        <div class="book book46"><img src="book46.jpg"><div class="book-title">Fundamentals of Software Engineering</div><button onclick="confirmBorrow('Fundamentals of Software Engineering')">Borrow</button></div>
+        <div class="book book47"><img src="book47.jpg"><div class="book-title">Introduction to Artificial Intelligence</div><button onclick="confirmBorrow('Introduction to Artificial Intelligence')">Borrow</button></div>
+        <div class="book book48"><img src="book48.jpg"><div class="book-title">Machine Learning: A Probabilistic Perspective</div><button onclick="confirmBorrow('Machine Learning: A Probabilistic Perspective')">Borrow</button></div>
+<div class="book book49"><img src="book49.jpg"><div class="book-title">Computer Graphics with OpenGL</div><button onclick="confirmBorrow('Computer Graphics with OpenGL')">Borrow</button></div>
+<div class="book book50"><img src="book50.jpg"><div class="book-title">Human-Computer Interaction</div><button onclick="confirmBorrow('Human-Computer Interaction')">Borrow</button></div>
+<div class="book book51"><img src="book51.jpg"><div class="book-title">Programming the World Wide Web</div><button onclick="confirmBorrow('Programming the World Wide Web')">Borrow</button></div>
+<div class="book book52"><img src="book52.jpg"><div class="book-title">Compiler Design</div><button onclick="confirmBorrow('Compiler Design')">Borrow</button></div>
+<div class="book book53"><img src="book53.jpg"><div class="book-title">Agile Software Development</div><button onclick="confirmBorrow('Agile Software Development')">Borrow</button></div>
+<div class="book book54"><img src="book54.jpg"><div class="book-title">Software Testing and Quality Assurance</div><button onclick="confirmBorrow('Software Testing and Quality Assurance')">Borrow</button></div>
+<div class="book book55"><img src="book55.jpg"><div class="book-title">Information Assurance and Security</div><button onclick="confirmBorrow('Information Assurance and Security')">Borrow</button></div>
+<div class="book book56"><img src="book56.jpg"><div class="book-title">Ethical Hacking and Countermeasures</div><button onclick="confirmBorrow('Ethical Hacking and Countermeasures')">Borrow</button></div>
+<div class="book book57"><img src="book57.jpg"><div class="book-title">Artificial Intelligence: Foundations of Computational Agents</div><button onclick="confirmBorrow('Artificial Intelligence: Foundations of Computational Agents')">Borrow</button></div>
+<div class="book book58"><img src="book58.jpg"><div class="book-title">Data Mining: Concepts and Techniques</div><button onclick="confirmBorrow('Data Mining: Concepts and Techniques')">Borrow</button></div>
+<div class="book book59"><img src="book59.jpg"><div class="book-title">Principles of Cybersecurity</div><button onclick="confirmBorrow('Principles of Cybersecurity')">Borrow</button></div>
+<div class="book book60"><img src="book60.jpg"><div class="book-title">Cryptography and Network Security</div><button onclick="confirmBorrow('Cryptography and Network Security')">Borrow</button></div>
+<div class="book book61"><img src="book61.jpg"><div class="book-title">Introduction to Algorithms</div><button onclick="confirmBorrow('Introduction to Algorithms')">Borrow</button></div>
+<div class="book book62"><img src="book62.jpg"><div class="book-title">Computer Vision: Models, Learning, and Inference</div><button onclick="confirmBorrow('Computer Vision: Models, Learning, and Inference')">Borrow</button></div>
+<div class="book book63"><img src="book63.jpg"><div class="book-title">Internet of Things: Principles and Paradigms</div><button onclick="confirmBorrow('Internet of Things: Principles and Paradigms')">Borrow</button></div>
+<div class="book book64"><img src="book64.jpg"><div class="book-title">Robotics: Modelling, Planning and Control</div><button onclick="confirmBorrow('Robotics: Modelling, Planning and Control')">Borrow</button></div>
+<div class="book book65"><img src="book65.jpg"><div class="book-title">Parallel Programming in C with MPI and OpenMP</div><button onclick="confirmBorrow('Parallel Programming in C with MPI and OpenMP')">Borrow</button></div>
+<div class="book book66"><img src="book66.jpg"><div class="book-title">Engineering Mathematics</div><button onclick="confirmBorrow('Engineering Mathematics')">Borrow</button></div>
+<div class="book book67"><img src="book67.jpg"><div class="book-title">Computer Architecture: A Quantitative Approach</div><button onclick="confirmBorrow('Computer Architecture: A Quantitative Approach')">Borrow</button></div>
+<div class="book book68"><img src="book68.jpg"><div class="book-title">Digital Logic and Computer Design</div><button onclick="confirmBorrow('Digital Logic and Computer Design')">Borrow</button></div>
+<div class="book book69"><img src="book69.jpg"><div class="book-title">Fundamentals of Electric Circuits</div><button onclick="confirmBorrow('Fundamentals of Electric Circuits')">Borrow</button></div>
+<div class="book book70"><img src="book70.jpg"><div class="book-title">Control Systems Engineering</div><button onclick="confirmBorrow('Control Systems Engineering')">Borrow</button></div>
+<div class="book book71"><img src="book71.jpg"><div class="book-title">Microelectronic Circuits</div><button onclick="confirmBorrow('Microelectronic Circuits')">Borrow</button></div>
+<div class="book book72"><img src="book72.jpg"><div class="book-title">Power System Analysis and Design</div><button onclick="confirmBorrow('Power System Analysis and Design')">Borrow</button></div>
+<div class="book book73"><img src="book73.jpg"><div class="book-title">Signals and Systems</div><button onclick="confirmBorrow('Signals and Systems')">Borrow</button></div>
+<div class="book book74"><img src="book74.jpg"><div class="book-title">Wireless Communications: Principles and Practice</div><button onclick="confirmBorrow('Wireless Communications: Principles and Practice')">Borrow</button></div>
+<div class="book book75"><img src="book75.jpg"><div class="book-title">Mechatronics: Control Systems in Engineering</div><button onclick="confirmBorrow('Mechatronics: Control Systems in Engineering')">Borrow</button></div>
+<div class="book book76"><img src="book76.jpg"><div class="book-title">Engineering Mechanics: Dynamics</div><button onclick="confirmBorrow('Engineering Mechanics: Dynamics')">Borrow</button></div>
+<div class="book book77"><img src="book77.jpg"><div class="book-title">Fluid Mechanics</div><button onclick="confirmBorrow('Fluid Mechanics')">Borrow</button></div>
+<div class="book book78"><img src="book78.jpg"><div class="book-title">Thermodynamics: An Engineering Approach</div><button onclick="confirmBorrow('Thermodynamics: An Engineering Approach')">Borrow</button></div>
+<div class="book book79"><img src="book79.jpg"><div class="book-title">Introduction to Robotics: Mechanics and Control</div><button onclick="confirmBorrow('Introduction to Robotics: Mechanics and Control')">Borrow</button></div>
+<div class="book book80"><img src="book80.jpg"><div class="book-title">Embedded Systems Design</div><button onclick="confirmBorrow('Embedded Systems Design')">Borrow</button></div>
+<div class="book book81"><img src="book81.jpg"><div class="book-title">Industrial Automation and Control</div><button onclick="confirmBorrow('Industrial Automation and Control')">Borrow</button></div>
+<div class="book book82"><img src="book82.jpg"><div class="book-title">Engineering Ethics</div><button onclick="confirmBorrow('Engineering Ethics')">Borrow</button></div>
+<div class="book book83"><img src="book83.jpg"><div class="book-title">Engineering Economy</div><button onclick="confirmBorrow('Engineering Economy')">Borrow</button></div>
+<div class="book book84"><img src="book84.jpg"><div class="book-title">Numerical Methods for Engineers</div><button onclick="confirmBorrow('Numerical Methods for Engineers')">Borrow</button></div>
+<div class="book book85"><img src="book85.jpg"><div class="book-title">Instrumentation and Control Systems</div><button onclick="confirmBorrow('Instrumentation and Control Systems')">Borrow</button></div>
+<div class="book book86"><img src="book86.jpg"><div class="book-title">Renewable Energy Systems</div><button onclick="confirmBorrow('Renewable Energy Systems')">Borrow</button></div>
+<div class="book book87"><img src="book87.jpg"><div class="book-title">Data Acquisition and Process Control</div><button onclick="confirmBorrow('Data Acquisition and Process Control')">Borrow</button></div>
+<div class="book book88"><img src="book88.jpg"><div class="book-title">Engineering Drawing and CAD</div><button onclick="confirmBorrow('Engineering Drawing and CAD')">Borrow</button></div>
+<div class="book book89"><img src="book89.jpg"><div class="book-title">Solid State Devices</div><button onclick="confirmBorrow('Solid State Devices')">Borrow</button></div>
+<div class="book book90"><img src="book90.jpg"><div class="book-title">Digital Signal Processing</div><button onclick="confirmBorrow('Digital Signal Processing')">Borrow</button></div>
+<div class="book book91"><img src="book91.jpg"><div class="book-title">Machine Learning for Engineers</div><button onclick="confirmBorrow('Machine Learning for Engineers')">Borrow</button></div>
+<div class="book book92"><img src="book92.jpg"><div class="book-title">Neural Networks and Deep Learning</div><button onclick="confirmBorrow('Neural Networks and Deep Learning')">Borrow</button></div>
+<div class="book book93"><img src="book93.jpg"><div class="book-title">CAD/CAM Principles and Applications</div><button onclick="confirmBorrow('CAD/CAM Principles and Applications')">Borrow</button></div>
+<div class="book book94"><img src="book94.jpg"><div class="book-title">Microprocessors and Microcontrollers</div><button onclick="confirmBorrow('Microprocessors and Microcontrollers')">Borrow</button></div>
+<div class="book book95"><img src="book95.jpg"><div class="book-title">Advanced Engineering Mathematics</div><button onclick="confirmBorrow('Advanced Engineering Mathematics')">Borrow</button></div>
+<div class="book book96"><img src="book96.jpg"><div class="book-title">Cyber-Physical Systems</div><button onclick="confirmBorrow('Cyber-Physical Systems')">Borrow</button></div>
+<div class="book book97"><img src="book97.jpg"><div class="book-title">Big Data for Engineers</div><button onclick="confirmBorrow('Big Data for Engineers')">Borrow</button></div>
+<div class="book book98"><img src="book98.jpg"><div class="book-title">Internet of Things: Applications and Architecture</div><button onclick="confirmBorrow('Internet of Things: Applications and Architecture')">Borrow</button></div>
+<div class="book book99"><img src="book99.jpg"><div class="book-title">Materials Science for Engineers</div><button onclick="confirmBorrow('Materials Science for Engineers')">Borrow</button></div>
+<div class="book book100"><img src="book100.jpg"><div class="book-title">Computer Vision: Algorithms and Applications</div><button onclick="confirmBorrow('Computer Vision: Algorithms and Applications')">Borrow</button></div>
+
+
+
+
+
+
+"Introduction to Information Systems" => "book1.jpg",
+          "Database Management Systems" => "book2.jpg",
+          "Business Information Systems" => "book3.jpg",
+          "Data Communications and Networking" => "book4.jpg",
+          "Systems Analysis and Design" => "book5.jpg",
+          "Enterprise Resource Planning" => "book6.jpg",
+          "E-Commerce: Business, Technology, Society" => "book7.jpg",
+          "Information Technology for Management" => "book8.jpg",
+          "Digital Transformation: Survive and Thrive in an Era of Mass Extinction" => "book9.jpg",
+          "Cloud Computing: Concepts, Technology & Architecture" => "book10.jpg",
+          "Information Systems: A Manager’s Guide to Harnessing Technology" => "book11.jpg",
+          "Management Information Systems" => "book12.jpg",
+          "IT Project Management: On Track from Start to Finish" => "book13.jpg",
+          "Data Science for Business" => "book14.jpg",
+          "Business Intelligence: A Managerial Perspective on Analytics" => "book15.jpg",
+          "Cybersecurity and Cyberwar: What Everyone Needs to Know" => "book16.jpg",
+          "Introduction to the Theory of Computation" => "book17.jpg",
+          "Computer Networks: A Systems Approach" => "book18.jpg",
+          "Information Systems Development: Methods, Techniques, and Tools" => "book19.jpg",
+          "The Big Data-Driven Business" => "book20.jpg",
+          "Deep Learning with Python" => "book21.jpg",
+          "Cloud Computing: Concepts, Technology & Architecture" => "book22.jpg",
+          "Big Data Fundamentals" => "book23.jpg",
+          "Mobile App Development" => "book24.jpg",
+          "Cybersecurity Essentials" => "book25.jpg",
+          "Software Engineering" => "book26.jpg",
+          "Internet of Things: A Hands-On Approach" => "book27.jpg",
+          "Data Mining Concepts and Techniques" => "book28.jpg",
+          "Agile Software Development" => "book29.jpg",
+          "IT Project Management" => "book30.jpg",
+          "Ethical Hacking" => "book31.jpg",
+          "Network Security Essentials" => "book32.jpg",
+          "Cryptography and Network Security" => "book33.jpg",
+          "Principles of Compiler Design" => "book34.jpg",
+          "Cloud Native Applications" => "book35.jpg",
+          "Full Stack Web Development" => "book36.jpg",
+          "Linux for Beginners" => "book37.jpg",
+          "Fundamentals of Networking" => "book38.jpg",
+          "Game Development with Unity" => "book39.jpg",
+          "Virtual Reality Development" => "book40.jpg",
+          "Introduction to Information Systems" => "book41.jpg",
+          "Programming in C" => "book42.jpg",
+          "Programming in C++" => "book43.jpg",
+          "Programming in JavaScript" => "book44.jpg",
+          "React.js Essentials" => "book45.jpg",
+          "Node.js in Action" => "book46.jpg",
+          "PHP and MySQL Web Development" => "book47.jpg",
+          "Laravel: Up & Running" => "book48.jpg",
+          "Python Crash Course" => "book49.jpg",
+          "Artificial Intelligence with Python" => "book50.jpg",
+          "Android Programming for Beginners" => "book51.jpg",
+          "Swift for Absolute Beginners" => "book52.jpg",
+          "iOS App Development with Swift" => "book53.jpg",
+          "Digital Image Processing" => "book54.jpg",
+          "Computer Vision" => "book55.jpg",
+          "Natural Language Processing" => "book56.jpg",
+          "Data Analytics with R" => "book57.jpg",
+          "Statistics for Data Science" => "book58.jpg",
+          "Principles of Management" => "book59.jpg",
+          "ITIL Foundation" => "book60.jpg",
+          "Computer Ethics" => "book61.jpg",
+          "Human-Computer Interaction" => "book62.jpg",
+          "Information Systems" => "book63.jpg",
+          "E-Commerce Technologies" => "book64.jpg",
+          "Blockchain Basics" => "book65.jpg",
+          "DevOps Handbook" => "book66.jpg",
+          "Machine Learning for Hackers" => "book67.jpg",
+          "AI Superpowers" => "book68.jpg",
+          "Data Science from Scratch" => "book69.jpg",
+          "Learning SQL" => "book70.jpg",
+          "Designing Data-Intensive Applications" => "book71.jpg",
+          "Programming Rust" => "book72.jpg",
+          "Grokking Algorithms" => "book73.jpg",
+          "System Design Interview" => "book74.jpg",
+          "Building Microservices" => "book75.jpg",
+          "You Don’t Know JS" => "book76.jpg",
+          "Clean Code" => "book77.jpg",
+          "Refactoring" => "book78.jpg",
+          "Domain-Driven Design" => "book79.jpg",
+          "Continuous Delivery" => "book80.jpg",
+          "Test-Driven Development" => "book81.jpg",
+          "The Mythical Man-Month" => "book82.jpg",
+          "Structure and Interpretation of Computer Programs" => "book83.jpg",
+          "Design Patterns" => "book84.jpg",
+          "The Pragmatic Programmer" => "book85.jpg",
+          "Cracking the Coding Interview" => "book86.jpg",
+          "Head First Design Patterns" => "book87.jpg",
+          "Algorithms Unlocked" => "book88.jpg"

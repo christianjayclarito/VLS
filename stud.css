@@ -1,0 +1,449 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f5e9; /* Light green background */
+    color: #1b5e20; /* Dark green text color for general content */
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #1b5e20; /* Dark green */
+    color: #ffeb3b; /* Yellow */
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  header .logo img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #ffeb3b; /* Yellow text for navigation */
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #cddc39; /* Lighter yellow on hover */
+  }
+  
+  .search-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #search-input {
+    padding: 8px 15px;
+    border: 2px solid #81c784; /* Light green border */
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .search-btn {
+    padding: 8px 16px;
+    border: none;
+    background-color: #ffeb3b; /* Yellow */
+    color: #1b5e20; /* Dark green text */
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: #cddc39; /* Lighter yellow on hover */
+  }
+  
+  .profile {
+    color: #ffeb3b; /* Yellow */
+    font-size: 1rem;
+  }
+  
+  /* Main Content */
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    display: none;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #1b5e20; /* Dark green */
+    position: relative;
+    padding-left: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 25px rgba(0, 0, 0, 0.05); /* Soft text shadow for a glowing effect */
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover Effect */
+  h2:hover {
+    color: #ffeb3b; /* Yellow */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 235, 59, 0.6); /* Glowing yellow effect on hover */
+    transform: translateX(10px); /* Subtle sliding effect */
+  }
+  
+  /* Additional Styling for Emphasis */
+  h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffeb3b; /* Yellow underline */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  h2:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  
+ .book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 35px;
+  margin-top: 20px;
+}
+
+.book {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.book:hover {
+  transform: scale(1.03);
+}
+
+
+
+  
+  
+  .book {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .book:hover {
+    transform: scale(1.05);
+  }
+  
+  .book img {
+    width: 100px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .book-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  
+
+  
+
+  .borrow-btn {
+    padding: 8px 16px;
+    background-color: #1b5e20; /* Dark green */
+    color: #ffffff; /* White text */
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .borrow-btn:hover {
+    background-color: #2e7d32; /* Slightly lighter green */
+    transform: translateY(-3px); /* Subtle hover lift effect */
+  }
+
+  .book_category {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .categoryb1:hover {
+    transform: scale(1.05);
+  }
+  
+  .categoryb1 img {
+    width: 100px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .categoryb1-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .categoryb2 {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .categoryb2:hover {
+    transform: scale(1.05);
+  }
+  
+  .categoryb2 img {
+    width: 100px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .categoryb2-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .categoryb3 {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .categoryb3:hover {
+    transform: scale(1.05);
+  }
+  
+  .categoryb3 img {
+    width: 100px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .categoryb3-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .categoryb4 {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .categoryb4:hover {
+    transform: scale(1.05);
+  }
+  
+  .categoryb4 img {
+    width: 100px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .categoryb4-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .categoryb5 {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .categoryb5:hover {
+    transform: scale(1.05);
+  }
+  
+  .categoryb5 img {
+    width: 100px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .categoryb5-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Sidebar for Dashboard Navigation */
+  .sidebar {
+    width: 250px;
+    background-color: #1b5e20; /* Dark green */
+    color: #ffeb3b; /* Yellow */
+    position: fixed;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar a {
+    display: block;
+    color: #ffeb3b; /* Yellow text */
+    padding: 12px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar a:hover {
+    background-color: #388e3c; /* Lighter green */
+    color: #ffffff; /* White text on hover */
+  }
+  
+  .sidebar a.active {
+    background-color: #2e7d32; /* Darker green for active link */
+    color: #ffffff; /* White */
+  }
+  
+  /* Content Area */
+  .content {
+    margin-left: 260px; /* To leave space for the sidebar */
+    padding: 20px;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1b5e20; /* Dark green */
+    color: #ffeb3b; /* Yellow */
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .search-container {
+      flex-direction: column;
+    }
+  
+    .book-list {
+      grid-template-columns: 1fr;
+    }
+  
+    .sidebar {
+      width: 100%;
+      position: relative;
+      height: auto;
+      padding-left: 10px;
+    }
+  
+    .content {
+      margin-left: 0;
+    }
+  
+    .book-title {
+      font-size: 1rem;
+    }
+  
+    .borrow-btn {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .logout-btn {
+    margin-left: 15px;
+    padding: 6px 12px;
+    background-color: #b21510;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c9302c;
+  }
+  
